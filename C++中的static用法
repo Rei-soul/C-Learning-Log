@@ -16,7 +16,7 @@ struct entinity {
 };      
 
 //静态方法没有类实例
-int entinity::x;
+int entinity::x;						
 int entinity::y;
 //类里的静态变量需要在类外面定义
 int main() {
