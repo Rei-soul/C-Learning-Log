@@ -1,0 +1,43 @@
+#include<iostream>
+//析构函数：生存期结束，销毁对象时候调用，卸载并清除，堆栈会用到
+// //游戏里打死小怪的反馈可以用这个（？）
+//构造函数：创建实例就会运行
+class entity {
+public:
+	float x, y;
+	entity() {
+		//创建实例就会运行
+		x = 0;
+		y = 0;
+		//初始化x和y
+		std::cout << "constructed entity" << std::endl;
+	}
+	entity(float a,float b) {
+		x = a;
+		y = b;
+	}
+	~entity() {
+		std::cout << "destoryed entity" << std::endl;
+		//销毁实例时进行，也可以手动调用
+	}
+	void print() {
+		std::cout << x << "," << y << std::endl;
+	}
+private:
+	entity(int a) = delete;
+	//这样写，可以保证不能新建实例
+};
+void function() {
+	entity e;
+	e.print();
+}
+int main() {
+	//析构函数：
+	function();
+	//构造函数:
+	//entity e;
+	//entity(5);
+	//这样的话会报错，不能使用这个函数，但别的可以使用
+	//std::cout << e.x << "," << e.y << std::endl;
+}
+
